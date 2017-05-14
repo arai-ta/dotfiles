@@ -1,0 +1,58 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+# terminal setting #
+# do not logout with Ctrl-D(eof) if login shell.
+if [ "$0" = "-bash" ] && [ "$TERM" != "screen" ]; then
+    IGNOREEOF=1
+fi
+# disable C-s
+stty stop undef     # for screen escape key C-s
+
+# alias #
+# vim
+alias vi=vim
+alias pv="view -"   # use as pager
+# ls
+alias ll="ls -lFGH"
+alias la="ls -laFGH"
+alias lt="ls -ltrFGH"
+# jobs
+alias j=jobs
+# change directory to up
+alias ..="cd .."
+# last
+alias vl="last | $PAGER"
+# `xi' like od
+alias xd="od -t x4z -A x"
+# text file filter
+alias tf='perl -lne "print if -f && -T"'
+# info: vi like keybind
+alias info='info --vi-keys'
+
+alias g=git
+
+if which vagrant >/dev/null
+then
+    alias v=vagrant
+fi
+
+# Mac OS X Only
+if [ "`uname`" = "Darwin" ]
+then
+    # ql: quick look preview (Mac OS X)
+    alias ql="qlmanage -p"
+    # of: open finder
+    alias of="open -a Finder"
+    # of: open finder
+    alias op="open"
+    # dict: dictionary utility
+    dict(){
+        open dict://"${@:?}"
+    }
+fi
+
