@@ -1,0 +1,6 @@
+escape ^Sa
+vbell off
+autodetach on   # 回線が切れた場合に自動的にデタッチする
+defscrollback 5000
+startup_message off    # スタートアップページを表示するか
+shell -/bin/bash # make the shell in every window a login shell
