@@ -1,8 +1,6 @@
 # .bash_profile
 
 # User specific environment and startup programs
-PS1='\u@\h:\w\n\$[\j] '
-# redefine at bashrc
 
 # umask
 umask 022
@@ -36,3 +34,4 @@ if [ -f ~/.bashrc ]; then
 	. ~/.bashrc
 fi
 
+export PS1='\u@\h:\w\n\$[\j] '
