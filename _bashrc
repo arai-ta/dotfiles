@@ -35,6 +35,7 @@ alias tf='perl -lne "print if -f && -T"'
 alias info='info --vi-keys'
 
 alias g=git
+alias m=make
 
 if which vagrant >/dev/null
 then
