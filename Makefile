@@ -9,6 +9,7 @@ TARGETS = \
 	~/.irbrc \
 	~/.pythonrc \
 	~/.screenrc \
+	~/.sqliterc \
 	~/.vimrc \
 
 help:
