@@ -23,6 +23,12 @@ set nowrap          " 長い行は折り返す
 set scrolloff=5     " 縦スクロール
 set sidescroll=10   " 横スクロール
 
+" file navigation
+nnoremap <C-c><C-n> :cnext<CR>
+nnoremap <C-c><C-p> :cprev<CR>
+nnoremap gn :next<CR>
+nnoremap gN :Next<CR>
+
 " tab/indent
 set expandtab       " tabキーでスペースを挿入する
 set softtabstop=4   " スペースの数は4
