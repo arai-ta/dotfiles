@@ -34,4 +34,13 @@ if [ -f ~/.bashrc ]; then
 	. ~/.bashrc
 fi
 
+# share history between multi console window
+_share_bash_history() {
+    history -a
+    history -c
+    history -r
+}
+PROMPT_COMMAND=_share_bash_history
+shopt -u histappend
+
 export PS1='\u@\h:\w\n\$[\j] '
