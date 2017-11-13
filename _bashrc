@@ -57,6 +57,10 @@ then
     }
 fi
 
+if [ -f ~/.cwrc.sh ]
+then
+    . ~/.cwrc.sh
+fi
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
