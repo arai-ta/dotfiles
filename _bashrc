@@ -37,6 +37,8 @@ alias info='info --vi-keys'
 alias g=git
 alias m=make
 
+alias reload="exec $SHELL -l"
+
 if which vagrant >/dev/null
 then
     alias v=vagrant
