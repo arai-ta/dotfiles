@@ -16,9 +16,11 @@
 	di = diff
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	lga = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	l1 = log --pretty=format:'[%ad] %h %an : %s' --date=iso
 	cp = cherry-pick
 	ls = diff --name-only
 	unstage = reset HEAD
+	up = !git pull && git submodule update
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
@@ -34,3 +36,5 @@
 	required = true
 [commit]
 	template = /Users/cw-arai/.stCommitMsg
+[fetch]
+	prune = true
