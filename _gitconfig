@@ -20,6 +20,7 @@
 	cp = cherry-pick
 	ls = diff --name-only
 	unstage = reset HEAD
+	staged = diff --cached
 	up = !git pull && git submodule update
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
