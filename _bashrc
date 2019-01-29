@@ -39,6 +39,12 @@ alias m=make
 
 alias reload="exec $SHELL -l"
 
+if which docker >/dev/null
+then
+    alias d=docker
+    alias dr="docker run --rm"
+fi
+
 if which vagrant >/dev/null
 then
     alias v=vagrant
@@ -59,11 +65,8 @@ then
     }
 fi
 
-if [ -f ~/.cwrc.sh ]
-then
-    . ~/.cwrc.sh
-fi
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -f /usr/local/opt/dvm/dvm.sh ] && . /usr/local/opt/dvm/dvm.sh # docker version
+which rbenv >/dev/null && eval "$(rbenv init -)"
