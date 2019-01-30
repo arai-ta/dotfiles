@@ -3,7 +3,7 @@
 	email = takashi.arai.nz@icloud.com
 [core]
 	editor = vi
-	excludesfile = /Users/cw-arai/.gitignore
+	excludesfile = ~/.gitignore
 [merge]
 	tool = vimdiff
 [color]
@@ -35,8 +35,6 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
-[commit]
-	template = /Users/cw-arai/.stCommitMsg
 [fetch]
 	prune = true
 [ghq]
