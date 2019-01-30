@@ -39,3 +39,5 @@
 	template = /Users/cw-arai/.stCommitMsg
 [fetch]
 	prune = true
+[ghq]
+	root = ~/work

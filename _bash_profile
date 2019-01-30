@@ -47,5 +47,5 @@ export PS1='\u@\h:\w\n\$[\j] '
 
 export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
 
-export GOPATH=~
+export GOPATH=~/work
 export PATH=$PATH:$GOPATH/bin

@@ -50,6 +50,17 @@ then
     alias v=vagrant
 fi
 
+if which peco >/dev/null
+then
+    alias p=peco
+fi
+
+if which ghq >/dev/null
+then
+    alias q=ghq
+    alias cdq='cd `ghq list -p | peco`'
+fi
+
 # Mac OS X Only
 if [ "`uname`" = "Darwin" ]
 then
