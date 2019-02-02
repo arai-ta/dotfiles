@@ -37,6 +37,12 @@ alias info='info --vi-keys'
 alias g=git
 alias m=make
 
+if which docker >/dev/null
+then
+    alias d=docker
+    alias dr="docker run --rm -it"
+fi
+
 if which vagrant >/dev/null
 then
     alias v=vagrant

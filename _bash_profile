@@ -35,3 +35,10 @@ if [ -f ~/.bashrc ]; then
 fi
 
 export PS1='\u@\h:\w\n\$[\j] '
+
+export GOPATH=~/work/go
+export PATH=$PATH:$GOPATH/bin
+
+if [ -f ~/.secret ]; then
+    . ~/.secret
+fi
