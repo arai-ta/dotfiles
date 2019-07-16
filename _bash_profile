@@ -43,9 +43,13 @@ _share_bash_history() {
 PROMPT_COMMAND=_share_bash_history
 shopt -u histappend
 
-export PS1='\u@\h:\w\n\$[\j] '
+export PS1='\u@\h:\w [\j]\n\$ '
 
 export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
 
 export GOPATH=~/work
 export PATH=$PATH:$GOPATH/bin
+
+if [ -f ~/.secret ]; then
+    . ~/.secret
+fi

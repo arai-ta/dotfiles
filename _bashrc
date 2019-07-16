@@ -53,12 +53,19 @@ fi
 if which peco >/dev/null
 then
     alias p=peco
+    vo() {
+        file=`git ls-files | peco ${1:+--query $1}`
+        [ -f "$file" ] && vi "$file" || echo "vo: file?: $file"
+    }
 fi
 
 if which ghq >/dev/null
 then
     alias q=ghq
-    alias cdq='cd `ghq list -p | peco`'
+    cq() {
+        dir=`ghq list -p ${1-chat} | peco`
+        [ -d "$dir" ] && cd "$dir"
+    }
 fi
 
 # Mac OS X Only
