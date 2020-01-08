@@ -23,6 +23,7 @@
 	staged = diff --cached
 	up = !git pull && git submodule update
 	app = !open -a 'github desktop' .
+	lsf = ls-files
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
