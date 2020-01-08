@@ -14,30 +14,27 @@ fi
 stty stop undef     # for screen escape key C-s
 
 # alias #
-# vim
-alias vi=vim
-alias pv="view -"   # use as pager
-# ls
-alias ll="ls -lFGH"
-alias la="ls -laFGH"
-alias lt="ls -ltrFGH"
-# jobs
-alias j=jobs
-# change directory to up
-alias ..="cd .."
-# last
-alias vl="last | $PAGER"
 # `xi' like od
 alias xd="od -t x4z -A x"
 # text file filter
 alias tf='perl -lne "print if -f && -T"'
-# info: vi like keybind
-alias info='info --vi-keys'
+# reload utility
+alias reload="exec $SHELL -l"
 
+# vim
+alias vi=vim
+alias pv="view -"   # use as pager
+
+# ls
+alias ll="ls -lFGH"
+alias la="ls -laFGH"
+alias lt="ls -ltrFGH"
+
+# favorite commands
+alias ..="cd .."
 alias g=git
 alias m=make
-
-alias reload="exec $SHELL -l"
+alias j=jobs
 
 if which docker >/dev/null
 then
@@ -68,19 +65,9 @@ then
     }
 fi
 
-# Mac OS X Only
-if [ "`uname`" = "Darwin" ]
+if which open >/dev/null
 then
-    # ql: quick look preview (Mac OS X)
-    alias ql="qlmanage -p"
-    # of: open finder
-    alias of="open -a Finder"
-    # of: open finder
-    alias op="open"
-    # dict: dictionary utility
-    dict(){
-        open dict://"${@:?}"
-    }
+    alias o=open
 fi
 
 export NVM_DIR="$HOME/.nvm"
