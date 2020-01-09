@@ -42,6 +42,12 @@ then
     alias dr="docker run --rm"
 fi
 
+if which docker >/dev/null
+then
+    alias d=docker
+    alias dr="docker run --rm -it"
+fi
+
 if which vagrant >/dev/null
 then
     alias v=vagrant
