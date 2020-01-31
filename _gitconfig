@@ -21,6 +21,7 @@
 	ls = diff --name-only
 	unstage = reset HEAD
 	staged = diff --cached
+	pu = pull
 	up = !git pull && git submodule update
 	app = !open -a 'github desktop' .
 	lsf = ls-files
