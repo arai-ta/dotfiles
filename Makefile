@@ -11,6 +11,7 @@ TARGETS = \
 	~/.screenrc \
 	~/.sqliterc \
 	~/.vimrc \
+	~/.peco \
 
 help:
 	@echo "Usage"
