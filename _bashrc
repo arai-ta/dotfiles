@@ -39,12 +39,6 @@ alias j=jobs
 if which docker >/dev/null
 then
     alias d=docker
-    alias dr="docker run --rm"
-fi
-
-if which docker >/dev/null
-then
-    alias d=docker
     alias dr="docker run --rm -it"
 fi
 
@@ -74,6 +68,11 @@ fi
 if which open >/dev/null
 then
     alias o=open
+fi
+
+if which heroku >/dev/null
+then
+    alias h=heroku
 fi
 
 export NVM_DIR="$HOME/.nvm"
