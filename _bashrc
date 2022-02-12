@@ -60,7 +60,7 @@ if which ghq >/dev/null
 then
     alias q=ghq
     cq() {
-        dir=`ghq list -p ${1-chat} | peco`
+        dir=`ghq list -p | peco`
         [ -d "$dir" ] && cd "$dir"
     }
 fi
@@ -73,6 +73,14 @@ fi
 if which heroku >/dev/null
 then
     alias h=heroku
+fi
+
+if which aws >/dev/null
+then
+    alias a=aws
+    alias a-cw="aws --profile cw.arai"
+    alias a-cwro="aws --profile cw.arai_ro"
+    alias a-test="aws --profile cwtest.arai"
 fi
 
 export NVM_DIR="$HOME/.nvm"
