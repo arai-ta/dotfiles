@@ -6,8 +6,6 @@ TARGETS = \
 	~/.bash_profile \
 	~/.gitconfig \
 	~/.gitignore \
-	~/.irbrc \
-	~/.pythonrc \
 	~/.screenrc \
 	~/.sqliterc \
 	~/.vimrc \
