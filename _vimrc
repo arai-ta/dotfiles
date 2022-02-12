@@ -39,6 +39,7 @@ autocmd FileType make setlocal noexpandtab      " makefileはtab展開しない
 autocmd FileType go setlocal noexpandtab        " goはtab展開しない
 autocmd FileType html setlocal ts=2 sts=2       " htmlは2tab
 autocmd FileType javascript setlocal ts=2 sw=2 sts=2 " jsは2tab
+autocmd FileType yaml setlocal ts=2 sw=2 sts=2  " yamlは2tab
 
 " search
 set ignorecase      " 大文字小文字を無視する
