@@ -43,3 +43,5 @@
 	prune = true
 [ghq]
 	root = ~/work/src
+[credential]
+	helper = osxkeychain
