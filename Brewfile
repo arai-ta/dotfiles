@@ -31,7 +31,6 @@ brew "watch"
 cask "ngrok"
 cask "bettertouchtool"
 cask "bitbar"
-cask "charles"
 cask "chatwork"
 cask "docker"
 cask "firefox"
@@ -41,6 +40,16 @@ cask "intellij-idea"
 cask "mysqlworkbench"
 cask "slack"
 cask "visual-studio-code"
+
+case ENV['LOGNAME']
+when 'nt'
+  cask "kicad"
+  cask "raspberry-pi-imager"
+when 'cw-arai'
+  cask "charles"
+else
+  puts 'LOGNAME base fomulae skipped.'
+end
 
 mas "app.seashore", id: 1448648921
 mas "CompareMergeLite", id: 1459748650
