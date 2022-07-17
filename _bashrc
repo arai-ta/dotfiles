@@ -42,17 +42,13 @@ then
     alias dr="docker run --rm -it"
 fi
 
-if which vagrant >/dev/null
-then
-    alias v=vagrant
-fi
-
 if which peco >/dev/null
 then
     alias p=peco
     vo() {
         file=`git ls-files | peco ${1:+--query $1}`
-        [ -f "$file" ] && vi "$file" || echo "vo: file?: $file"
+        echo "file: $file"
+        [ -f "$file" ] && vi "$file"
     }
 fi
 
@@ -60,7 +56,7 @@ if which ghq >/dev/null
 then
     alias q=ghq
     cq() {
-        dir=`ghq list -p | peco`
+        dir=`ghq list -p | peco --query "$1"`
         [ -d "$dir" ] && cd "$dir"
     }
 fi
@@ -78,9 +74,11 @@ fi
 if which aws >/dev/null
 then
     alias a=aws
-    alias a-cw="aws --profile cw.arai"
-    alias a-cwro="aws --profile cw.arai_ro"
-    alias a-test="aws --profile cwtest.arai"
+fi
+
+if which figlet >/dev/null
+then
+    alias banner=figlet
 fi
 
 export NVM_DIR="$HOME/.nvm"

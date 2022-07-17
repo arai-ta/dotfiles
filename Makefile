@@ -33,3 +33,14 @@ $(HOME)/.% : _%
 	rm -f $@
 	ln -s $(PWD)/$< $@
 
+homebrew:
+	/usr/bin/ruby -e "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+.PHONY: Brewfile
+Brewfile:
+	brew bundle dump --force
+
+xcodecli:
+	xcode-select --install
+	sudo xcodebuild -license accept
+

@@ -26,6 +26,8 @@
 	app = !open -a 'github desktop' .
 	f = ls-files
 	new = "!sh -c 'git checkout -b $1 origin/master' -"
+	c = "!set -x && git checkout $(git branch | peco)"
+	fe = fetch
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
@@ -45,3 +47,5 @@
 	root = ~/work/src
 [credential]
 	helper = osxkeychain
+[pull]
+	ff = only
