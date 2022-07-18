@@ -43,6 +43,6 @@ Brewfile:
 	brew bundle dump --force
 
 xcodecli:
-	xcode-select --install
+	-xcode-select --install
 	sudo xcodebuild -license accept
 
