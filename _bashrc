@@ -16,8 +16,6 @@ stty stop undef     # for screen escape key C-s
 # alias #
 # `xi' like od
 alias xd="od -t x4z -A x"
-# text file filter
-alias tf='perl -lne "print if -f && -T"'
 # reload utility
 alias reload="exec $SHELL -l"
 
@@ -79,6 +77,11 @@ fi
 if which figlet >/dev/null
 then
     alias banner=figlet
+fi
+
+if which terraform >/dev/null
+then
+    alias t=terraform
 fi
 
 export NVM_DIR="$HOME/.nvm"
