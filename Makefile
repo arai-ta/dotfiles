@@ -10,6 +10,7 @@ TARGETS = \
 	~/.sqliterc \
 	~/.vimrc \
 	~/.peco \
+	~/.aws/cli/alias \
 
 help:
 	@echo "Usage"
@@ -30,6 +31,7 @@ all : $(TARGETS)
 
 #rule
 $(HOME)/.% : _%
+	mkdir -m 700 -p `dirname $@`
 	rm -f $@
 	ln -s $(PWD)/$< $@
 

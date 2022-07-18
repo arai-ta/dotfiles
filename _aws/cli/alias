@@ -1,0 +1,8 @@
+[toplevel]
+
+whoami = sts get-caller-identity
+
+profiles =
+    !f() {
+        awk '/profile/{sub(/]/,"",$2); print $2}' ~/.aws/config
+    }; f
