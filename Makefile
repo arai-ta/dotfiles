@@ -9,7 +9,7 @@ TARGETS = \
 	~/.screenrc \
 	~/.sqliterc \
 	~/.vimrc \
-	~/.peco \
+	~/.peco/config.json \
 	~/.aws/cli/alias \
 
 help:
@@ -21,8 +21,8 @@ help:
 
 diff :
 	@for f in $(TARGETS) ;do \
-		echo "========== $$f =========="; \
-		diff -u $$f $(PWD)/`basename $$f | sed -e 's/^\./_/'`; \
+		printf "Checking $$f ..."; \
+		diff -u $$f "$(PWD)/_$${f#~/.}" && echo "No diff found."; \
 	done
 
 raspi : ~/.gitconfig ~/.gitignore ~/.vimrc
