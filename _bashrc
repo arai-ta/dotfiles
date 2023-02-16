@@ -64,11 +64,6 @@ then
     alias o=open
 fi
 
-if which heroku >/dev/null
-then
-    alias h=heroku
-fi
-
 if which aws >/dev/null
 then
     alias a=aws
@@ -82,6 +77,11 @@ fi
 if which terraform >/dev/null
 then
     alias t=terraform
+fi
+
+if which stripe >/dev/null
+then
+    alias s=stripe
 fi
 
 export NVM_DIR="$HOME/.nvm"
