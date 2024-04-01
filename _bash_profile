@@ -61,8 +61,8 @@ export GOPATH=~/work
 export DO_NOT_TRACK=1
 
 if [ -d ~/Library/Android/sdk ]; then
-    export ANDROID_SDK_ROOT=~/Library/Android/sdk
-    export PATH=$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/platform-tools:$PATH
+    export ANDROID_HOME=~/Library/Android/sdk
+    export PATH="$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator"
     # Android Keystore
     export STORE_PASSWORD_DEBUG='android'
     export KEY_ALIAS_DEBUG='androiddebugkey'

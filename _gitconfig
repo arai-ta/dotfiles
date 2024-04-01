@@ -28,6 +28,7 @@
 	new = "!sh -c 'git checkout -b $1 origin/master' -"
 	c = "!set -x && git checkout $(git branch | peco)"
 	fe = fetch
+	sw = switch
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
