@@ -22,6 +22,7 @@ then
     export PATH="/opt/homebrew/bin:/opt/homebrew/sbin${PATH+:$PATH}";
     export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}:";
     export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}";
+    export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1
 fi
 
 if [ `uname` = "Darwin" ]
@@ -63,10 +64,6 @@ export DO_NOT_TRACK=1
 if [ -d ~/Library/Android/sdk ]; then
     export ANDROID_HOME=~/Library/Android/sdk
     export PATH="$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator"
-    # Android Keystore
-    export STORE_PASSWORD_DEBUG='android'
-    export KEY_ALIAS_DEBUG='androiddebugkey'
-    export KEY_PASSWORD_DEBUG='android'
 fi
 
 if [ -f ~/.secret ]; then
