@@ -12,6 +12,7 @@ alias jman="LANG=$ja man"
 
 export HISTFILESIZE=500000
 export HISTSIZE=500000
+export SHELL_SESSION_HISTORY=0
 
 # mac
 if [ -d /opt/homebrew -a "$(arch)" = "arm64" ]
@@ -45,12 +46,12 @@ if [ -f ~/.bashrc ]; then
 fi
 
 # share history between multi console window
-_share_bash_history() {
-    history -a
-    history -c
-    history -r
-}
-PROMPT_COMMAND=_share_bash_history
+#_share_bash_history() {
+#    history -a
+#    history -c
+#    history -r
+#}
+#PROMPT_COMMAND=_share_bash_history
 shopt -u histappend
 
 export PS1='\u@\h:\w [\j]\n\$ '
