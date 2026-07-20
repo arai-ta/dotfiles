@@ -67,6 +67,11 @@ if [ -d ~/Library/Android/sdk ]; then
     export PATH="$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator"
 fi
 
+# claude, etc
+if [ -d ~/.local/bin ]; then
+    export PATH="$PATH:~/.local/bin"
+fi
+
 if [ -f ~/.secret ]; then
     . ~/.secret
 fi
