@@ -2,6 +2,8 @@
 
 whoami = sts get-caller-identity
 
+account = sts get-caller-identity --query Account --output text
+
 profiles =
     !f() {
         awk '/profile/{sub(/]/,"",$2); print $2}' ~/.aws/config
