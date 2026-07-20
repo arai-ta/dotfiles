@@ -23,14 +23,22 @@ then
     export PATH="/opt/homebrew/bin:/opt/homebrew/sbin${PATH+:$PATH}";
     export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}:";
     export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}";
-    export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1
 fi
 
 if [ `uname` = "Darwin" ]
 then
     export PATH=~/work/bin:$PATH
-    export HOMEBREW_NO_INSTALL_CLEANUP=1
     export BASH_SILENCE_DEPRECATION_WARNING=1
+fi
+
+# rancher desktop
+if [ -d $HOME/.rd/bin ]; then
+    export PATH=$HOME/.rd/bin:$PATH
+fi
+
+# claude, etc
+if [ -d ~/.local/bin ]; then
+    export PATH="$PATH:~/.local/bin"
 fi
 
 if which less >/dev/null ;then
@@ -56,7 +64,7 @@ shopt -u histappend
 
 export PS1='\u@\h:\w [\j]\n\$ '
 
-#export JAVA_HOME="$(/usr/libexec/java_home -v 11)"
+export JAVA_HOME="/opt/homebrew/opt/openjdk"
 
 export GOPATH=~/work
 
@@ -74,5 +82,9 @@ fi
 
 if [ -f ~/.secret ]; then
     . ~/.secret
+fi
+
+if which rbenv >/dev/null ;then
+    eval "$(rbenv init - --no-rehash bash)"
 fi
 

@@ -74,6 +74,9 @@ then
     alias s=stripe
 fi
 
+# disable bracket paste mode
+printf '\e[?2004l'
+
 export NVM_DIR="$(brew --prefix nvm)"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
