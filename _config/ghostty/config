@@ -1,0 +1,20 @@
+theme = Iceberg Dark
+
+background-opacity = 0.8
+background-blur = true
+unfocused-split-opacity = 0.6
+
+font-size = 16
+font-family = "Osaka-Mono"
+
+# default x100
+scrollback-limit = 1000000000
+#                  g  m  k
+
+# c-[ -> esc
+keybind = ctrl+[=text:\x1b
+
+# quick terminal
+keybind = global:ctrl+cmd+backspace=toggle_quick_terminal
+
+copy-on-select = clipboard

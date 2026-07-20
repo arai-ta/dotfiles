@@ -11,6 +11,7 @@ TARGETS = \
 	~/.vimrc \
 	~/.peco/config.json \
 	~/.aws/cli/alias \
+	~/.config/ghostty/config \
 
 help:
 	@echo "Usage"
