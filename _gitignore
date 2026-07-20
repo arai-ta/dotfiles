@@ -1,7 +1,17 @@
 *.swp
 *~
 .DS_Store
+
+# editor, IDE
 .vscode/
 .idea
 
-**/.claude/settings.local.json
+# claude
+.claude/
+.claude/settings.local.json
+CLAUDE.local.md
+.wt/
+
+# for development
+*.env.backup*
+sandbox/*.php
