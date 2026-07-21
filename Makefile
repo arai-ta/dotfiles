@@ -49,14 +49,10 @@ $(DIR_TARGETS) :
 	rm -rf $@
 	ln -s $(PWD)/$(patsubst $(HOME)/.%,_%,$@) $@
 
-homebrew:
-	/usr/bin/ruby -e "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
 .PHONY: Brewfile
 Brewfile:
 	brew bundle dump --force
 
-xcodecli:
-	-xcode-select --install
+xcode:
 	sudo xcodebuild -license accept
 
