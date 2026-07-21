@@ -12,6 +12,12 @@ TARGETS = \
 	~/.peco/config.json \
 	~/.aws/cli/alias \
 	~/.config/ghostty/config \
+	~/.claude/CLAUDE.md \
+	~/.claude/settings.json \
+
+# ディレクトリはルールが違う
+DIR_TARGETS = \
+	~/.claude/skills \
 
 help:
 	@echo "Usage"
@@ -21,20 +27,27 @@ help:
 	@echo "  make all   : install all dotfiles"
 
 diff :
-	@for f in $(TARGETS) ;do \
+	@for f in $(TARGETS) $(DIR_TARGETS) ;do \
 		printf "Checking $$f ..."; \
-		diff -u $$f "$(PWD)/_$${f#~/.}" && echo "No diff found."; \
+		diff -ru $$f "$(PWD)/_$${f#~/.}" && echo "No diff found."; \
 	done
 
 raspi : ~/.gitconfig ~/.gitignore ~/.vimrc
 
-all : $(TARGETS)
+all : $(TARGETS) $(DIR_TARGETS)
 
-#rule
+# ファイル向けルール
 $(HOME)/.% : _%
 	mkdir -m 700 -p `dirname $@`
 	rm -f $@
 	ln -s $(PWD)/$< $@
+
+# ディレクトリ向けルール
+.PHONY: $(DIR_TARGETS)
+$(DIR_TARGETS) :
+	mkdir -m 700 -p $(dir $@)
+	rm -rf $@
+	ln -s $(PWD)/$(patsubst $(HOME)/.%,_%,$@) $@
 
 homebrew:
 	/usr/bin/ruby -e "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
