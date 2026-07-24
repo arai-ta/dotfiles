@@ -1,11 +1,6 @@
 #!/bin/sh
 #
 # 新しい macOS マシンをまっさらな状態から立ち上げるブートストラップ。
-#   1. Xcode Command Line Tools（git / make を含む）を導入し、完了まで待つ
-#   2. Homebrew を導入する
-#   3. このリポジトリを正規パスへ clone する
-#   4. `make all` で dotfiles を home 以下へ展開する
-#   5. Brewfile から各種ツールを導入する
 #
 # 使い方（リポジトリも git もまだ無い素の環境で、この1行だけ）:
 #   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/arai-ta/dotfiles/master/setup.sh)"
@@ -17,6 +12,9 @@ set -eu
 
 REPO_URL="https://github.com/arai-ta/dotfiles"
 DEST="$HOME/work/src/github.com/arai-ta/dotfiles"
+
+# 0. Enable touch id for sudo
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/arai-ta/enable-touch-id-sudo/master/install.sh)"
 
 # 1. Xcode Command Line Tools（git / make の実体）
 #    `xcode-select --install` は GUI インストーラを出して即 return する非同期動作なので、
