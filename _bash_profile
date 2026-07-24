@@ -77,14 +77,15 @@ fi
 
 # claude, etc
 if [ -d ~/.local/bin ]; then
-    export PATH="$PATH:~/.local/bin"
+    export PATH="$PATH:$HOME/.local/bin"
 fi
 
 if [ -f ~/.secret ]; then
     . ~/.secret
 fi
 
-if which rbenv >/dev/null ;then
-    eval "$(rbenv init - --no-rehash bash)"
+# tiny scripts
+if [ -d ~/work/src/github.com/arai-ta/dotfiles/bin ]; then
+    export PATH="$PATH:$HOME/work/src/github.com/arai-ta/dotfiles/bin"
 fi
 

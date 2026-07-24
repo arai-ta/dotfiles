@@ -1,0 +1,99 @@
+#!/bin/bash
+#
+# @(#) Tiny script that opens github repository in the browser.
+#
+
+set -e
+set -u
+#set -x
+
+usage() {
+    cat <<HELP
+usage: git open [<options>] [<path>]
+
+    -p, --copy          Copy URL to clipboard instead of opening bworser.
+    -s, --short-hash    Use abbreviated commit hash as a part of URL, instead of branch name.
+    -l, --long-hash     Use full commit hash as a part of URL, instead of branch name.
+
+HELP
+}
+
+DO_COPY=
+TREEISH=branch
+for arg in $@
+do case $arg in
+    -h | --help )
+        usage
+        exit 1 ;;
+    -p | --copy )
+        DO_COPY=1
+        shift ;;
+    -s | --short-hash )
+        TREEISH=hash
+        shift ;;
+    -l | --long-hash )
+        TREEISH=longhash
+        shift ;;
+    esac
+done
+
+url=$(git remote -v | \
+    awk '
+        $3 ~ /fetch/{
+            url=$2;
+            if (url ~ /^https?:/) {
+                # http protocol
+                # do nothing
+            } else if (url ~ /^ssh:/) {
+                # ssh protocol
+                sub(/ssh:/, "https:", url);
+                sub(/git@/, "", url);
+                sub(/\.git$/, "", url);
+            } else {
+                # user@server
+                sub(/:/, "/", url);
+                sub(/git@/, "https://", url);
+                sub(/\.git$/, "", url);
+            }
+            print url
+        }')
+
+if [ -z "$url" ]
+then
+    echo "No remote found."
+    exit 2
+fi
+
+if [ -e "${1:-}" ]
+then
+    path=$(git rev-parse --show-prefix)$1
+    case $TREEISH in
+        hash )
+            treeish=$(git log -1 --format=%h)
+            ;;
+        longhash )
+            treeish=$(git log -1 --format=%H)
+            ;;
+        branch )
+            treeish=$(git branch | \
+                awk '
+                    /^\*/{
+                        if (/HEAD detached/) {
+                            sub(/\)/,"",$5); print $5;
+                        } else {
+                            print $2
+                        }
+                    }')
+            ;;
+    esac
+    url=$url/blob/$treeish/$path
+fi
+
+echo $url
+if [ $DO_COPY ]
+then
+    echo $url | pbcopy
+    echo "Copy url to clipboard!" >&2
+else
+    open $url
+fi
